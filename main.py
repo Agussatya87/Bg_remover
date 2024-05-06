@@ -31,15 +31,15 @@ def fix_image(upload):
     col2.write("Fixed Image :wrench:")
     col2.image(fixed)
     st.sidebar.markdown("\n")
-    st.sidebar.download_button("Download fixed image", convert_image(fixed), "fixed.png", "image/png")
+    st.sidebar.download_button("Download removeBG image", convert_image(fixed), "fixed.png", "image/png")
 
 
 col1, col2 = st.columns(2)
-my_upload = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+my_upload = st.sidebar.file_uploader("Upload gambar", type=["png", "jpg", "jpeg"])
 
 if my_upload is not None:
     if my_upload.size > MAX_FILE_SIZE:
-        st.error("The uploaded file is too large. Please upload an image smaller than 5MB.")
+        st.error("File terlalu besar. Upload file kurang dari 5MB.")
     else:
         fix_image(upload=my_upload)
 else:
